@@ -17,7 +17,7 @@ begin
     begin
         if rising_edge(clk) then
             if MemWrite = '1' then
-                DataMEM(to_integer(unsigned(Address)))<= Data_In;
+                DataMEM(to_integer(unsigned(Address))) <= Data_In ;
             end if;
             Data_Out <= DataMEM(to_integer(unsigned(Address)))
         end if;

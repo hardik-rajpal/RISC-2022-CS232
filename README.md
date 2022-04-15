@@ -1,0 +1,1 @@
+We have assumed opcode of LHI to be 00_11
