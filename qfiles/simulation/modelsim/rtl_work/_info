@@ -10,7 +10,11 @@ z2
 cModel Technology
 Z0 dC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim
 Ealu
+<<<<<<< HEAD
 Z1 w1650101907
+=======
+Z1 w1650109126
+>>>>>>> pcbug
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -22,13 +26,19 @@ Z7 8C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd
 Z8 FC:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd
 l0
 L5 1
-Vnh@kNA7G6@ZM]@BQk4lZM3
-!s100 SGDoH]V]AX4m69oL63]l23
+VhT1?zIBeA9JT]6nXTMn>W3
+!s100 aamPLSSVjQl;B>XVe^TUW0
 Z9 OV;C;2020.1;71
 31
+<<<<<<< HEAD
 Z10 !s110 1650102688
 !i10b 1
 Z11 !s108 1650102688.000000
+=======
+Z10 !s110 1650114300
+!i10b 1
+Z11 !s108 1650114300.000000
+>>>>>>> pcbug
 Z12 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
 Z13 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
 !i113 1
@@ -40,12 +50,19 @@ R3
 R4
 R5
 R6
-DEx4 work 3 alu 0 22 nh@kNA7G6@ZM]@BQk4lZM3
+DEx4 work 3 alu 0 22 hT1?zIBeA9JT]6nXTMn>W3
 !i122 0
+<<<<<<< HEAD
 l15
 L13 15
 VUjdTdGk@5Hg;<]8H7]m960
 !s100 EaChW][KGZefR67Nm9PTe1
+=======
+l14
+L12 12
+VefMcECPe`WJXDajNCQ8=h2
+!s100 ^=JGm25oL_=Zl0jLM7;4H0
+>>>>>>> pcbug
 R9
 31
 R10
@@ -57,7 +74,7 @@ R13
 R14
 R15
 Ememory
-Z16 w1650091734
+Z16 w1650107916
 R2
 R3
 R6
@@ -69,13 +86,19 @@ Z17 8C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd
 Z18 FC:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd
 l0
 L6 1
-VVf@LlP?@MhJiA>=8D>mbO0
-!s100 cOo<fz492O^1e_iM23Djk2
+V>A4flg9Vk[<cOG0nVN?^41
+!s100 T3mR^Cn]04X2X1F53fE8>1
 R9
 31
+<<<<<<< HEAD
 Z19 !s110 1650102689
 !i10b 1
 Z20 !s108 1650102689.000000
+=======
+Z19 !s110 1650114301
+!i10b 1
+Z20 !s108 1650114301.000000
+>>>>>>> pcbug
 Z21 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
 Z22 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
 !i113 1
@@ -87,12 +110,12 @@ R3
 R6
 R4
 R5
-DEx4 work 6 memory 0 22 Vf@LlP?@MhJiA>=8D>mbO0
+DEx4 work 6 memory 0 22 >A4flg9Vk[<cOG0nVN?^41
 !i122 1
 l16
-L13 17
-V4ibLWn=ZP4ZZVT<AP9<<72
-!s100 Z:jKUbK<m6PkHYj@KbAj]2
+L13 15
+Vj_AQ`ImAU7lWa:[XW5adZ2
+!s100 [bd[Acb8UC:7jWQh4Yg3[1
 R9
 31
 R19
@@ -104,7 +127,11 @@ R22
 R14
 R15
 Emulticycleprocessor
+<<<<<<< HEAD
 Z23 w1650102633
+=======
+Z23 w1650111562
+>>>>>>> pcbug
 R2
 R3
 R6
@@ -120,11 +147,19 @@ V?^eMN4cei4Hh<]g^^nfPh2
 !s100 biT[7>6TK7B2hVlE]6XmQ2
 R9
 31
+<<<<<<< HEAD
 R19
 !i10b 1
 R20
 Z26 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
 Z27 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+=======
+Z26 !s110 1650114302
+!i10b 1
+R20
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+Z28 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+>>>>>>> pcbug
 !i113 1
 R14
 R15
@@ -136,6 +171,7 @@ R4
 R5
 DEx4 work 19 multicycleprocessor 0 22 ?^eMN4cei4Hh<]g^^nfPh2
 !i122 2
+<<<<<<< HEAD
 l58
 L13 162
 VEoaBNI>lJ3z5FQBG1GT]h3
@@ -147,27 +183,56 @@ R19
 R20
 R26
 R27
+=======
+l57
+L13 179
+VAK1E^`3CXW5N:^4iL3;KH1
+!s100 oGB:@1?CafZYNA4YGf6JT3
+R9
+31
+R26
+!i10b 1
+R20
+R27
+R28
+>>>>>>> pcbug
 !i113 1
 R14
 R15
 Emulticycleprocessor_vhd_vec_tst
+<<<<<<< HEAD
 Z28 w1650099623
+=======
+Z29 w1650103246
+>>>>>>> pcbug
 R4
 R5
 !i122 3
 R0
+<<<<<<< HEAD
 Z29 8C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
 Z30 FC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
+=======
+Z30 8C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
+Z31 FC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
+>>>>>>> pcbug
 l0
 L32 1
 VJ1kH[P7N1`2@<jzn>UPnO3
 !s100 ^_dGP5]1LWNG1Un>`omd43
 R9
 31
+<<<<<<< HEAD
 R19
 !i10b 1
 R20
 Z31 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+=======
+R26
+!i10b 1
+Z32 !s108 1650114302.000000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+>>>>>>> pcbug
 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
 !i113 1
 R14
@@ -183,11 +248,19 @@ VK6PdMMM;7]nGEI61jbYfi2
 !s100 56R38O7[?X5Ci;J<g<47Q2
 R9
 31
+<<<<<<< HEAD
 R19
 !i10b 1
 R20
 R31
 Z32 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+=======
+R26
+!i10b 1
+R32
+R33
+Z34 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+>>>>>>> pcbug
 !i113 1
 R14
 R15

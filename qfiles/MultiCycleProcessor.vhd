@@ -41,7 +41,7 @@ architecture arc of MultiCycleProcessor is
 	constant ID:integer:=1;
 	constant EX:integer:=2;
 	constant WB:integer:=3;
-
+	constant DM:integer:=4;
 	signal aluA, aluB, aluC: std_logic_vector(15 downto 0) ;
 	signal aluCtrl: std_logic_vector(2 downto 0) ;
 	signal aluCout: std_logic ; 
@@ -53,7 +53,7 @@ architecture arc of MultiCycleProcessor is
 
 	component Memory is
 		port (Address: in std_logic_vector(15 downto 0) ;
-        	clk, MemWrite: in std_logic;
+        	MemWrite: in std_logic;
         	Data_In: in std_logic_vector(15 downto 0) ;
         	Data_Out: out std_logic_vector(15 downto 0)) ;
 	end component;
@@ -61,16 +61,15 @@ architecture arc of MultiCycleProcessor is
 	component ALU is
 		port (a,b: in std_logic_vector(15 downto 0) ;
 			ctrl: in std_logic_vector(2 downto 0) ;
-			clk: in std_logic;
 			c: out std_logic_vector(15 downto 0);
 			cout: out std_logic) ;
 	end component;
 
 begin
 	mem_instance: Memory
-     	port map(Address => addr, clk => clk, memWrite => memWrite, Data_In => Data_In, Data_Out => Data_Out);
+     	port map(Address => addr, memWrite => memWrite, Data_In => Data_In, Data_Out => Data_Out);
 	ALU_instance: ALU
-     	port map(a => aluA, b => aluB, ctrl => aluCtrl, clk => clk, c => aluC, cout => aluCout);
+     	port map(a => aluA, b => aluB, ctrl => aluCtrl, c => aluC, cout => aluCout);
 	process(clk)
 	begin		
 		if rising_edge(clk) then
@@ -83,10 +82,21 @@ begin
 				if(state = IR) then
 					addr <= reg(7) ;
 					memWrite <= '0' ;
+					-- temp6 <= reg(7) + '1';
 					aluA <= reg(7) ;
 					aluB <= (2=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
-					state <= ID;
+					-- if(aluCout = '1') then
+					--  report "alucout: 1";
+					--  elsif(alucout='0') then
+					--  report "alucout: 0";
+					--  else
+					--  report "alucout:X?";
+					--  end if;
+					-- report "aluC: "&integer'image(to_integer(unsigned(aluC)));
+					state <= DM;
+				elsif(state=DM) then
+					state<=ID;
 				elsif (state = ID) then 
 					if (opcode = OC_ADDR) then 
 						-- Addition
@@ -150,7 +160,7 @@ begin
 						addr<=temp3;
 					end if;
 					--shifted to last process(temp3)
-
+					state<=IR;
 				end if ;
 				
 			end if ;
@@ -171,8 +181,16 @@ begin
 
 	process(aluC, aluCout)
 	begin
-		report "aluC: "&integer'image(to_integer(unsigned(aluC)))&"aluA: "&integer'image(to_integer(unsigned(aluA)))&"aluB: "&integer'image(to_integer(unsigned(aluB)));
-		if (state = ID) then
+		-- if(aluCout = '1') then
+		-- 	report "alucout: 1";
+		-- 	elsif(alucout='0') then
+		-- 	report "alucout: 0";
+		-- 	else
+		-- 	report "alucout:X?";
+		-- 	end if;
+
+		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
+		if (state = ID or state= DM) then
 			temp3 <= aluC ;
 		elsif (state = WB) then
 			-- set flags on execution
@@ -192,7 +210,7 @@ begin
 	end process;
 	process(temp3,temp4)
 	begin
-		if(state=IR) then
+		if(state=DM or state=ID) then
 			reg(7)<=temp3;
 		elsif(state=WB) then
 			if (opcode = OC_ADDI or opcode=OC_ADDR) then 
