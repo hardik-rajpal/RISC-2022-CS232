@@ -26,10 +26,11 @@ architecture arc of MultiCycleProcessor is
 	constant IR:integer:=0;
 	constant ID:integer:=1;
 	constant EX:integer:=2;
-	constant WB:integer:=3;
+	constant MEM:integer:=3;
+	constant WB:integer:=4;
 
 	signal aluA, aluB, aluC: std_logic_vector(15 downto 0) ;
-	signal aluCtrl: std_logic_vector(2 downto 0) ;
+	signal aluCtrl: std_logic_vector(3 downto 0) ;
 	signal aluCout: std_logic ; 
 
 	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
@@ -46,8 +47,7 @@ architecture arc of MultiCycleProcessor is
 
 	component ALU is
 		port (a,b: in std_logic_vector(15 downto 0) ;
-			ctrl: in std_logic_vector(2 downto 0) ;
-			clk: in std_logic;
+			ctrl: in std_logic_vector(3 downto 0) ;
 			c: out std_logic_vector(15 downto 0);
 			cout: out std_logic) ;
 	end component;
@@ -57,7 +57,7 @@ begin
      	port map(Address => addr, clk => clk, memWrite => memWrite, Data_In => Data_In, Data_Out => Data_Out);
 
 	ALU_instance: ALU
-     	port map(a => aluA, b => aluB, ctrl => aluCtrl, clk => clk, c => aluC, cout => aluCout);
+     	port map(a => aluA, b => aluB, ctrl => aluCtrl, c => aluC, cout => aluCout);
 	process(clk)
 	begin		
 		if rising_edge(clk) then
@@ -69,7 +69,7 @@ begin
 					memWrite <= '0' ;
 					aluA <= reg(7) ;
 					aluB <= (2=>'1', others=>'0') ;
-					aluCtrl <= "000" ;
+					aluCtrl <= "0000" ;
 					state <= ID;
 				elsif (state = ID) then 
 					if (instr_reg(15 downto 12) = "0001") then 
@@ -98,7 +98,7 @@ begin
 					if (instr_reg(15 downto 12) = "0001") then 
 						aluA <= temp1 ;
 						aluB <= temp2 ;
-						aluCtrl <= "000" ;
+						aluCtrl <= "0000" ;
 					end if ;
 
 				elsif (state = WB) then
