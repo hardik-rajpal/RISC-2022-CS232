@@ -55,7 +55,6 @@ architecture arc of MultiCycleProcessor is
 begin
 	mem_instance: Memory
      	port map(Address => addr, clk => clk, memWrite => memWrite, Data_In => Data_In, Data_Out => Data_Out);
-
 	ALU_instance: ALU
      	port map(a => aluA, b => aluB, ctrl => aluCtrl, clk => clk, c => aluC, cout => aluCout);
 	process(clk)
@@ -68,32 +67,9 @@ begin
 					addr <= reg(7) ;
 					memWrite <= '0' ;
 					aluA <= reg(7) ;
-					aluB <= (2=>'1', others=>'0') ;
+					aluB <= (0=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
 					state <= ID;
-				elsif (state = ID) then 
-					if (instr_reg(15 downto 12) = "0001") then 
-					-- Addition
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
-
-						if (instr_reg(1 downto 0) = "11") then 
-							temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
-						end if;
-						state <= EX ;
-
-					elsif (instr_reg(15 downto 12) = "0000") then 
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
-						temp2(5 downto 0) <= instr_reg(5 downto 0);
-						temp2 (15 downto 6) <= (others=>'0');
-						state <= EX ;
-
-					elsif (instr_reg(15 downto 12) = "0010") then 
-					-- NAND
-
-					elsif (instr_reg(15 downto 12) = "0011") then 
-
-					end if ;
-
 				elsif (state = EX) then 
 					if (instr_reg(15 downto 12) = "0001") then 
 						aluA <= temp1 ;
@@ -117,7 +93,29 @@ begin
 			-- state <= ID ;
 		end if ;
 	end process ;
+	process(instr_reg)
+	begin
+		if (instr_reg(15 downto 12) = "0001") then 
+			-- Addition
+				temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+				if (instr_reg(1 downto 0) = "11") then 
+					temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
+				end if;
+				state <= EX ;
 
+		elsif (instr_reg(15 downto 12) = "0000") then 
+			temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+			temp2(5 downto 0) <= instr_reg(5 downto 0);
+			temp2 (15 downto 6) <= (others=>'0');
+			state <= EX ;
+
+		elsif (instr_reg(15 downto 12) = "0010") then 
+			temp1<= reg(to_integer())
+
+		elsif (instr_reg(15 downto 12) = "0011") then 
+
+		end if ;
+	end process;
 	process(aluC, aluCout)
 	begin
 		if (state = IR) then
@@ -151,7 +149,7 @@ begin
 				elsif (instr_reg(1 downto 0) = "01" and zero='1') then
 					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
 				
-				end if ;	
+				end if ;
 			end if ;
 		end if;
 	end process;
