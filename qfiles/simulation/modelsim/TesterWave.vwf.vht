@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "04/16/2022 11:47:12"
+-- Generated on "04/16/2022 14:30:23"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          MultiCycleProcessor
 -- 
@@ -35,10 +35,14 @@ ARCHITECTURE MultiCycleProcessor_arch OF MultiCycleProcessor_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
+SIGNAL instrReg : STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL ostate : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL rst : STD_LOGIC;
 COMPONENT MultiCycleProcessor
 	PORT (
 	clk : IN STD_LOGIC;
+	instrReg : BUFFER STD_LOGIC_VECTOR(15 DOWNTO 0);
+	ostate : BUFFER STD_LOGIC_VECTOR(31 DOWNTO 0);
 	rst : IN STD_LOGIC
 	);
 END COMPONENT;
@@ -47,6 +51,8 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	instrReg => instrReg,
+	ostate => ostate,
 	rst => rst
 	);
 
@@ -66,7 +72,7 @@ END PROCESS t_prcs_clk;
 t_prcs_rst: PROCESS
 BEGIN
 	rst <= '1';
-	WAIT FOR 640000 ps;
+	WAIT FOR 960000 ps;
 	rst <= '0';
 WAIT;
 END PROCESS t_prcs_rst;

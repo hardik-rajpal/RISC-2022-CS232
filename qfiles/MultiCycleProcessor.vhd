@@ -7,7 +7,7 @@ entity MultiCycleProcessor is
 	port ( clk, rst : in std_logic;
 --			regs:out array(0 to 7) of std_logic_vector(15 downto 0);
 			instrReg:out std_logic_vector(15 downto 0);
-			ostate:out integer);
+			ostate:out std_logic_vector(31 downto 0));
 end entity;
 
 architecture arc of MultiCycleProcessor is
@@ -73,7 +73,7 @@ begin
 					addr <= reg(7) ;
 					memWrite <= '0' ;
 					aluA <= reg(7) ;
-					aluB <= (2=>'1', others=>'0') ;
+					aluB <= (0=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
 					state <= ID;
 				elsif (state = ID) then 
@@ -81,9 +81,11 @@ begin
 						-- Addition
 							temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
 							if (instr_reg(1 downto 0) = "11") then 
+								temp2 <= std_logic_vector(shift_left(unsigned(reg(to_integer(unsigned(instr_reg(8 downto 6))))),1)) ;
+							else
 								temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
 							end if;
-							state <= EX ;
+							state <=EX ;
 			
 					elsif (instr_reg(15 downto 12) = "0000") then 
 						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
@@ -103,6 +105,7 @@ begin
 						aluA <= temp1 ;
 						aluB <= temp2 ;
 						aluCtrl <= "000" ;
+						state<= WB ;
 					end if ;
 
 				elsif (state = WB) then
@@ -128,7 +131,7 @@ begin
 		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
 		if (state = IR) then
 			temp3 <= aluC ;
-		elsif (state = EX) then
+		elsif (state = WB) then
 			-- set flags on execution
 			temp3 <= aluC ;
 			if(to_integer(unsigned(aluC)) = 0) then
@@ -163,7 +166,7 @@ begin
 	end process;
 	process(state,reg,instr_reg)
 	begin
-		ostate<=state;
+		ostate<=std_logic_vector(to_unsigned(state, ostate'length));
 --		regs<=reg;
 		instrReg<=instr_reg;
 	end process;

@@ -13,7 +13,7 @@ end ALU;
 architecture Behavioral of ALU is
 
 begin
-    process (clk)
+    process (clk,a,b)
     begin
         report "inputs: "&integer'image(to_integer(unsigned(a)))&", "&integer'image(to_integer(unsigned(b)));
         if rising_edge(clk) then
