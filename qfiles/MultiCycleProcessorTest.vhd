@@ -1,3 +1,5 @@
+--todo:store r7 + 1 in dest registers with jump link instructions.
+--currently r7 is stored.
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
@@ -13,7 +15,7 @@ end entity;
 architecture arc of MultiCycleProcessorTest is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
-	signal reg: registers:=(0=>"0000000000000011",1=>"0000000000000011",others=>(others=>'0')) ;
+	signal reg: registers:=(0=>"0000000000000111",1=>"0000000000000011",3=>"0000000000001111",others=>(others=>'0')) ;
 
 	-- signal updatedPC:std_logic_vector(15 downto 0);
 	signal instr_reg: std_logic_vector(15 downto 0) ;
@@ -146,6 +148,7 @@ begin
 
 					elsif (opcode = OC_JLR) then 
 						temp5<=reg(7);
+                        -- report "reg7 to temp5 "&integer'image(to_integer(unsigned(reg(7))));
 						temp4<=reg(to_integer(unsigned(instr_reg(8 downto 6))));
 						state <= IR ;
 
@@ -268,9 +271,12 @@ begin
             if (opcode=OC_JLR) then
                 reg(to_integer(unsigned(instr_reg(11 downto 9))))<=temp5;
                 reg(7)<=temp4;
-            elsif(opcode = OC_BEQ  or opcode=OC_JAL or opcode=OC_JRI) then
-                report "opcode=beq";
+            elsif(opcode = OC_BEQ  or opcode=OC_JRI) then
+                report "opcode=jri";                
                 reg(7)<=temp4;
+            elsif(opcode=OC_JAL) then
+                reg(7)<=temp4;
+                reg(to_integer(unsigned(instr_reg(11 downto 9))))<=temp6;
             end if;
 		elsif(state=WB) then
 			if (opcode = OC_ADDR or opcode=OC_ADDI) then 

@@ -20,6 +20,7 @@ architecture arc of MultiCycleProcessor is
 	signal instr_reg: std_logic_vector(15 downto 0) ;
 	signal carry: std_logic ;
 	signal zero: std_logic ; 
+	signal reg_pin: std_logic; 
 
 	signal addr: std_logic_vector(15 downto 0) ;
 	signal memWrite: std_logic ;
@@ -49,8 +50,10 @@ architecture arc of MultiCycleProcessor is
 
 	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
 	signal temp4:std_logic_vector(15 downto 0);
+	signal multi_cycle_counter : integer := 0;
 	signal state: integer:=0 ;
 	--state variable functions as the control signal to registers, memory, alus etc.
+	
 
 	component Memory is
 		port (Address: in std_logic_vector(15 downto 0) ;
@@ -156,16 +159,23 @@ begin
 						state <= EX ;
 					
 					elsif (opcode = OC_LW) then
-						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))); -- stores the reg having the memory address(imm to be added)
-					
-					elsif (opcode = OC_SW) then
-						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))); -- stores the reg having the memory address(imm to be added)
+						temp1<= reg(to_integer(unsigned(instr_reg(8 downto 6))));
+						temp2(5 downto 0)<=instr_reg(5 downto 0);
+						temp2(15 downto 6)<=(others=>'0');
+						state<=EX;
+
+					elsif (opcode= OC_SW) then
+						temp5<=instr_reg(11 downto 9);--ra
+						temp2(5 downto 0)<=instr_reg(5 downto 0);
+						temp2(15 downto 6)<=(others=>'0');--imm
+						temp1<=instr_reg(8 downto 6);
+						state<=EX;--rb
 					
 					elsif (opcode = OC_LM) then
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address
+						temp5 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the memory address
 
 					elsif (opcode = OC_SM) then
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address				
+						temp5 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the memory address				
 					end if ;
 
 					
@@ -191,21 +201,66 @@ begin
 					elsif (opcode = OC_JRI) then
 						reg(7) <= temp3 ;
 						state <= IR ;
-					elsif (opcode = OC_LW) then
-						aluA <= temp1;
-						aluB <= "0000000000" & instr_reg()
-						aluCtrl <= "000";
-					elsif (opcode = OC_SW) then
+						
+					if (opcode = OC_SW or opcode = OC_LW) then 
+						aluA <= temp1 ;
+						aluB <= temp2 ;
+						aluCtrl <= "000" ;
+						state <= WB ;
+					end if ;
 
 					elsif (opcode = OC_LM) then
+						state <= DM;
 
 					elsif (opcode = OC_SM) then
-						
+						state <= WB;
+
 					end if ;
 
 				elsif (state = WB) then
-					--shifted to last process(temp3)
-					state<=IR;
+					if (opcode = OC_SW) then
+						if multi_cycle_counter = 8 then
+							multi_cycle_counter <= 0;
+							state <= IR;
+						else
+							addr <= temp5 ;
+							memWrite <= '1';
+							if instr_reg(multi_cycle_counter) = '1';
+								Data_In <= reg(multi_cycle_counter);
+							aluA <= temp5;
+							aluB <= "0000000000000001";
+							aluCtrl <= "000";
+							multi_cycle_counter <= multi_cycle_counter + 1;
+						end if;
+					end if;
+
+					if(opcode = OC_LW) then
+						addr<=temp3;
+						state <= IR
+					elsif (opcode = OC_SW) then
+						addr<=temp3;
+						Data_in<=temp5;
+						memWrite<='1';
+						state <= IR
+					end if;
+				
+				elsif (state = DM) then
+					if (opcode = OC_LM) then
+						if multi_cycle_counter = 8 then
+							multi_cycle_counter := 0;
+							state <= IR;
+						else 
+							addr <= temp5 ;
+							memWrite <= '0';
+							reg_pin <= instr_reg(multi_cycle_counter); 
+							aluA <= temp5;
+							aluB <= "0000000000000001";
+							aluCtrl <= "000";
+							multi_cycle_counter <= multi_cycle_counter + 1;
+						end if;
+					else 	
+						state<=IR;
+					end if;
 				end if ;
 				
 			end if ;
@@ -219,6 +274,8 @@ begin
 			opcode <= Data_out(15 downto 12);
 			-- state <= ID ;
 			report "read instruction"&(integer'image(to_integer(unsigned(Data_out))));
+		elsif (state = DM and opcode = OC_LM and reg_pin = '1') then
+			reg(multi_cycle_counter) <= Data_Out;
 		end if ;
 	end process ;
 
@@ -234,20 +291,29 @@ begin
 
 		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
 		if (state = ID or state= DM) then
-			temp3 <= aluC ;
+			if (opcode = OC_LM) then
+				temp5 <= aluC;
+			else
+				temp3 <= aluC ;
+			end if;
+			
 		elsif (state = WB) then
-			-- set flags on execution
-			temp3 <= aluC ;
-			if(to_integer(unsigned(aluC)) = 0) then
-				zero <= '1' ;
-			else 
-				zero <= '0' ;
-			end if ;
-			if(aluCout = '1') then
-				carry <= '1' ;
-			else 
-				carry <= '0' ;
-			end if ;
+			if (opcode = OC_LM) then
+				temp5 <= aluC;
+			else
+				-- set flags on execution
+				temp3 <= aluC ;
+				if(to_integer(unsigned(aluC)) = 0) then
+					zero <= '1' ;
+				else 
+					zero <= '0' ;
+				end if ;
+				if(aluCout = '1') then
+					carry <= '1' ;
+				else 
+					carry <= '0' ;
+				end if ;
+			end if;
 		end if ;
 	end process;
 	process(temp3)
