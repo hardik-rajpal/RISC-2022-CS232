@@ -14,11 +14,14 @@ architecture Behavioral of Memory is
 type RAM is array (0 to 65535) of std_logic_vector(15 downto 0) ;
 signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
 begin
-    if MemWrite = '1' then
+	process(Address)
+	begin
+    if (MemWrite = '1') then
         DataMEM(to_integer(unsigned(Address))) <= Data_In ;
     end if;
     -- report "data at 0"&integer'image(to_integer(unsigned(dataMem(0))));
     -- report "addr in: "&integer'image(to_integer(unsigned(Address)));
     -- report "data returned: "&integer'image(to_integer(unsigned(DataMEM(to_integer(unsigned(Address))))));
     Data_Out <= DataMEM(to_integer(unsigned(Address)));
+	 end process;
 end Behavioral;

@@ -10,9 +10,14 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
+signal temp : std_logic_vector(15 downto 0):= "0111000000000000";
 begin
-    if(ctrl="000") then
-        c<= a+b;
---                report "output:"&integer'image(to_integer(unsigned(c)));
-    end if;
+	process(a,b,ctrl)
+	begin
+		if (ctrl = "000") then
+			c<= a+b;
+			temp <=a+b ;
+         report "output:"&integer'image(to_integer(unsigned(temp)));
+		end if;
+	end process;
 end Behavioral;

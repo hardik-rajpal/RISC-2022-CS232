@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:30:10 on Apr 16,2022
+# Start time: 18:35:00 on Apr 16,2022
 # vcom -reportprogress 300 -93 -work work C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -22,11 +22,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity ALU
 # -- Compiling architecture Behavioral of ALU
-# End time: 16:30:10 on Apr 16,2022, Elapsed time: 0:00:00
+# End time: 18:35:00 on Apr 16,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:30:11 on Apr 16,2022
+# Start time: 18:35:01 on Apr 16,2022
 # vcom -reportprogress 300 -93 -work work C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -36,11 +36,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity Memory
 # -- Compiling architecture Behavioral of Memory
-# End time: 16:30:11 on Apr 16,2022, Elapsed time: 0:00:00
+# End time: 18:35:01 on Apr 16,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:30:11 on Apr 16,2022
+# Start time: 18:35:01 on Apr 16,2022
 # vcom -reportprogress 300 -93 -work work C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -50,24 +50,24 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity MultiCycleProcessor
 # -- Compiling architecture arc of MultiCycleProcessor
-# End time: 16:30:11 on Apr 16,2022, Elapsed time: 0:00:00
+# End time: 18:35:02 on Apr 16,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:30:12 on Apr 16,2022
+# Start time: 18:35:02 on Apr 16,2022
 # vcom -reportprogress 300 -93 -work work C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity MultiCycleProcessor_vhd_vec_tst
 # -- Compiling architecture MultiCycleProcessor_arch of MultiCycleProcessor_vhd_vec_tst
-# End time: 16:30:12 on Apr 16,2022, Elapsed time: 0:00:00
+# End time: 18:35:02 on Apr 16,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  MultiCycleProcessor_vhd_vec_tst
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" MultiCycleProcessor_vhd_vec_tst 
-# Start time: 16:30:12 on Apr 16,2022
+# Start time: 18:35:02 on Apr 16,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -84,9 +84,9 @@
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: HARDIK RAJPAL  Hostname: DESKTOP-LPRHNB6  ProcessID: 16028
-#           Attempting to use alternate WLF file "./wlft01d4gk".
+#           Attempting to use alternate WLF file "./wlftzxhfgr".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft01d4gk
+#           Using alternate file: ./wlftzxhfgr
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -100,64 +100,28 @@
 #    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: read instruction0
 #    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 0
-#    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 0
-#    Time: 0 ps  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: reg0 = 3
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg1 = 3
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg2 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg3 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg4 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg5 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg6 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+#    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+#    Time: 0 ps  Iteration: 0  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
 # ** Note: read instruction4176
-#    Time: 500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 0
-#    Time: 1 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 0
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+#    Time: 0 ps  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg0 = 3
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg1 = 3
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg2 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg3 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg4 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg5 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg6 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: reg7 = 0
+#    Time: 500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -172,26 +136,12 @@
 #    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg7 = 0
 #    Time: 1500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: output:28672
 #    Time: 1500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 1
-#    Time: 1500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 2 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 1
-#    Time: 2 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 1
-#    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 1
+#    Time: 1500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -206,26 +156,8 @@
 #    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 1
 #    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 2500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 2500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: aluC: 0
-#    Time: 2500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 3 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 1
-#    Time: 3 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 0, 1
-#    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -240,18 +172,8 @@
 #    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 1
 #    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 3500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 3500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Note: inputs: 3, 3
-#    Time: 4 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -266,18 +188,12 @@
 #    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 1
 #    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 4500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: output:1
+#    Time: 4500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: aluC: 6
-#    Time: 4500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 5 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+#    Time: 4500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -292,16 +208,8 @@
 #    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 1
 #    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 5500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 6 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -316,16 +224,12 @@
 #    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 1
 #    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 6500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 7 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 6500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 2
+#    Time: 6500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -340,16 +244,8 @@
 #    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 2
 #    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 7500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 8 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -364,16 +260,8 @@
 #    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 2
 #    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 8500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 9 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -388,16 +276,12 @@
 #    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 2
 #    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 9500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 10 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:2
+#    Time: 9500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 6
+#    Time: 9500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -412,16 +296,8 @@
 #    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 2
 #    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 10500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 11 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -436,16 +312,12 @@
 #    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 2
 #    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 11500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 12 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 11500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 3
+#    Time: 11500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -460,16 +332,8 @@
 #    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 3
 #    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 12500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 13 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -484,16 +348,8 @@
 #    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 3
 #    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 13500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 14 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -508,16 +364,12 @@
 #    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 3
 #    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 14500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 15 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:3
+#    Time: 14500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 6
+#    Time: 14500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -532,16 +384,8 @@
 #    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 3
 #    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 15500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 16 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -556,16 +400,12 @@
 #    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 3
 #    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 16500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 17 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 16500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 4
+#    Time: 16500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -580,16 +420,8 @@
 #    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 4
 #    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 17500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 18 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -604,16 +436,8 @@
 #    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 4
 #    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 18500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 19 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -628,16 +452,12 @@
 #    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 4
 #    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 19500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 20 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:4
+#    Time: 19500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 6
+#    Time: 19500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -652,16 +472,8 @@
 #    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 4
 #    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 20500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 21 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -676,16 +488,12 @@
 #    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 4
 #    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 21500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 22 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 21500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 5
+#    Time: 21500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -700,16 +508,8 @@
 #    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 22500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 23 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -724,16 +524,8 @@
 #    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 23500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 24 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -748,16 +540,12 @@
 #    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 24500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 25 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:5
+#    Time: 24500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: aluC: 6
+#    Time: 24500 ns  Iteration: 3  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg0 = 3
 #    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -772,16 +560,8 @@
 #    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 25500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 26 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -796,16 +576,10 @@
 #    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 26500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 27 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 26500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -820,16 +594,8 @@
 #    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 27500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 28 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -844,16 +610,8 @@
 #    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 28500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 29 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -868,16 +626,10 @@
 #    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 29500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 30 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 29500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -892,16 +644,8 @@
 #    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 30500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 31 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -916,16 +660,10 @@
 #    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 31500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 32 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 31500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -940,16 +678,8 @@
 #    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 32500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 33 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -964,16 +694,8 @@
 #    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 33500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 34 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -988,16 +710,10 @@
 #    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 34500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 35 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 34500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -1012,16 +728,8 @@
 #    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 35500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 36 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -1036,16 +744,10 @@
 #    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 36500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 37 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
+# ** Note: output:6
+#    Time: 36500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -1060,16 +762,8 @@
 #    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 37500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 38 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -1084,16 +778,8 @@
 #    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 38500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: inputs: 3, 3
-#    Time: 39 us  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/mem_instance
-# ** Note: inputs: 3, 3
-#    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
 # ** Note: reg0 = 3
 #    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg1 = 3
@@ -1108,7 +794,7 @@
 #    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
 # ** Note: reg6 = 0
 #    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# ** Note: reg7 = 5
 #    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
-# ** Note: reg7 = 0
-#    Time: 39500 ns  Iteration: 1  Instance: /multicycleprocessor_vhd_vec_tst/i1
+# ** Note: output:6
+#    Time: 39500 ns  Iteration: 2  Instance: /multicycleprocessor_vhd_vec_tst/i1/ALU_instance
