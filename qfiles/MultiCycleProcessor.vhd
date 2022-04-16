@@ -11,7 +11,9 @@ architecture arc of MultiCycleProcessor is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
 	signal reg: registers ;
+	signal tempreg: registers ;
 
+	-- signal updatedPC:std_logic_vector(15 downto 0);
 	signal instr_reg: std_logic_vector(15 downto 0) ;
 	signal carry: std_logic ;
 	signal zero: std_logic ;
@@ -33,7 +35,7 @@ architecture arc of MultiCycleProcessor is
 	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
 
 	signal state: integer:=0 ;
-
+	--state variable functions as the control signal to registers, memory, alus etc.
 
 	component Memory is
 		port (Address: in std_logic_vector(15 downto 0) ;
@@ -100,16 +102,7 @@ begin
 					end if ;
 
 				elsif (state = WB) then
-					if (instr_reg(15 downto 12) = "0001") then 
-						-- if(instr_reg(1 downto 0) = "00") then
-						-- 	reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-						-- elsif (instr_reg(1 downto 0) = "10" and carry='1') then
-						-- 	reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-						-- elsif (instr_reg(1 downto 0) = "01" and zero='1') then
-						-- 	reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-						
-						-- end if ;	
-					end if ;
+					--shifted to last process(temp3)
 
 				end if ;
 				
@@ -128,7 +121,7 @@ begin
 	process(aluC, aluCout)
 	begin
 		if (state = IR) then
-			reg(7) <= aluC ;
+			temp3 <= aluC ;
 		elsif (state = EX) then
 			-- set flags on execution
 			temp3 <= aluC ;
@@ -144,5 +137,22 @@ begin
 				carry <= '0' ;
 			end if ;
 		end if ;
+	end process;
+	process(temp3)
+	begin
+		if(state=IR) then
+			reg(7)<=temp3;
+		elsif(state=WB) then
+			if (instr_reg(15 downto 12) = "0001") then 
+				if(instr_reg(1 downto 0) = "00") then
+					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
+				elsif (instr_reg(1 downto 0) = "10" and carry='1') then
+					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
+				elsif (instr_reg(1 downto 0) = "01" and zero='1') then
+					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
+				
+				end if ;	
+			end if ;
+		end if;
 	end process;
 end arc;
