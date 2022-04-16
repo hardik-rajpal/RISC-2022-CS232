@@ -11,9 +11,9 @@ entity Memory is
 end Memory;
 
 architecture Behavioral of Memory is
-type RAM is array (0 to 65535) of std_logic_vector(15 downto 0) ;
--- signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
-signal DataMEM: RAM:=(0=>"1011000000000111",others=>(others=>'0'));--jri r0, 7
+type RAMD is array (0 to 1023) of std_logic_vector(15 downto 0) ;
+ signal DataMEM: RAMD:=(0=>"0001000001010000",others=>(others=>'0'));
+--signal DataMEM: RAM:=(0=>"1011000000000111",others=>(others=>'0'));--jri r0, 7
 -- signal DataMEM: RAM:=(0=>"1010010011000000",others=>(others=>'0'));--jlr r2, r3
 -- signal DataMEM: RAM:=(0=>"1001010000000111",others=>(others=>'0'));--jal r2, 7
 -- signal DataMEM: RAM:=(0=>"1000000001000011",others=>(others=>'0'));--beq r0, r1, 3

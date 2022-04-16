@@ -21,7 +21,7 @@ architecture arc of MultiCycleProcessorTest is
 	signal instr_reg: std_logic_vector(15 downto 0) ;
 	signal carry: std_logic ;
 	signal zero: std_logic ; 
-
+	signal reg_pin: std_logic; 
 	signal addr: std_logic_vector(15 downto 0) ;
 	signal memWrite: std_logic ;
 	signal Data_In: std_logic_vector(15 downto 0) ;
@@ -44,12 +44,14 @@ architecture arc of MultiCycleProcessorTest is
 	constant EX:integer:=2;
 	constant WB:integer:=3;
 	constant DM:integer:=4;
+	constant DMY:integer:=5;
+
 	signal aluA, aluB, aluC: std_logic_vector(15 downto 0) ;
 	signal aluCtrl: std_logic_vector(2 downto 0) ;
 	signal aluCout: std_logic ; 
-
+	signal multi_cycle_counter : integer := 0;
 	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
-	signal temp4, temp5,temp6,temp7:std_logic_vector(15 downto 0);
+	signal temp4, temp5,temp6,temp7,temp8,temp9:std_logic_vector(15 downto 0);
 	signal state: integer:=0 ;
 	--state variable functions as the control signal to registers, memory, alus etc.
 --	variable multi_cycle_counter : integer := 0;
@@ -88,8 +90,8 @@ begin
 					aluA <= reg(7) ;
 					aluB <= (0=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
-					state <= DM;
-				elsif(state=DM) then
+					state <= DMY;
+				elsif(state=DMY) then
 					state<=ID;
 				elsif (state = ID) then 
 					if (opcode = OC_ADDR) then 
@@ -159,16 +161,21 @@ begin
 						state <= EX ;
 					
 					elsif (opcode = OC_LW) then
-						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))); -- stores the reg having the memory address(imm to be added)
-					
+						temp1<= reg(to_integer(unsigned(instr_reg(8 downto 6))));
+						temp2(5 downto 0)<=instr_reg(5 downto 0);
+						temp2(15 downto 6)<=(others=>'0');
+						state<=EX;
 					elsif (opcode = OC_SW) then
-						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))); -- stores the reg having the memory address(imm to be added)
-					
+						temp5<=reg(to_integer(unsigned(instr_reg(11 downto 9))));--ra
+						temp2(5 downto 0)<=instr_reg(5 downto 0);
+						temp2(15 downto 6)<=(others=>'0');--imm
+						temp1<=reg(to_integer(unsigned(instr_reg(8 downto 6))));
+						state<=EX;--rb
 					elsif (opcode = OC_LM) then
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address
+						temp5 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address
 
 					elsif (opcode = OC_SM) then
-						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address				
+						temp5 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address				
 					end if ;
 				elsif (state = EX) then 
 					if (opcode = OC_ADDR or opcode = OC_ADDI or opcode = OC_LHI) then 
@@ -194,17 +201,11 @@ begin
 						temp4 <= temp3 ;
 						state <= IR ;
 						
-					elsif (opcode = OC_LW) then
-						aluA <= temp1;
-						aluB <= "0000000000" & instr_reg(5 downto 0);
-						aluCtrl <= "000";
-						state <= DM ;
-
-					elsif (opcode = OC_SW) then
-						aluA <= temp1;
-						aluB <= "0000000000" & instr_reg(5 downto 0);
-						aluCtrl <= "000";
-						state <= WB;
+					elsif (opcode = OC_LW or opcode=OC_SW) then
+                        aluA <= temp1 ;
+						aluB <= temp2 ;
+						aluCtrl <= "000" ;
+						state <= WB ;
 
 					elsif (opcode = OC_LM) then
 						state <= DM;
@@ -213,9 +214,51 @@ begin
 						state <= WB;
 
 					end if ;
+                elsif (state=WB) then
+                    if (opcode = OC_SM) then
+						if multi_cycle_counter = 8 then
+							multi_cycle_counter <= 0;
+							state <= IR;
+						else
+							addr <= temp9 ;
+							memWrite <= '1';
+							if instr_reg(multi_cycle_counter) = '1' then
+								Data_In <= reg(multi_cycle_counter);
+								aluA <= temp9;
+								aluB <= "0000000000000001";
+								aluCtrl <= "000";
+								multi_cycle_counter <= multi_cycle_counter + 1;
+							end if ;
+						end if;
+					end if;
 
+					if(opcode = OC_LW) then
+						addr<=temp3;
+						state <= IR;
+					elsif (opcode = OC_SW) then
+						addr<=temp3;
+						Data_in<=temp5;
+						memWrite<='1';
+						state <= IR;
+					end if;
+                elsif (state = DM) then
+					if (opcode = OC_LM) then
+						if multi_cycle_counter = 8 then
+							multi_cycle_counter <= 0;
+							state <= IR;
+						else 
+							addr <= temp9 ;
+							memWrite <= '0';
+							reg_pin <= instr_reg(multi_cycle_counter); 
+							aluA <= temp9;
+							aluB <= "0000000000000001";
+							aluCtrl <= "000";
+							multi_cycle_counter <= multi_cycle_counter + 1;
+						end if;
+					else 	
+						state<=IR;
+					end if;
 				end if ;
-				
 			end if ;
 		end if ;
 	end process ;
@@ -227,7 +270,9 @@ begin
 			opcode <= Data_out(15 downto 12);
 			-- state <= ID ;
 			report "read instruction"&(integer'image(to_integer(unsigned(Data_out))));
-		end if ;
+        elsif (state=DM and opcode=OC_LM and reg_pin='1') then
+            temp8<=Data_Out;
+        end if ;
 	end process ;
 
 	process(aluC, aluCout)
@@ -241,29 +286,42 @@ begin
 		-- 	end if;
 
 		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
-		if (state = ID or state= DM) then
-			temp3 <= aluC ;
+		if (state = ID or state= DMY or state=DM) then
+			if(opcode=OC_LM) then
+                temp9<=aluC;
+            else
+                temp3 <= aluC ;
+            end if;
         elsif(state=EX) then
             temp3 <= aluC;
 		elsif (state = WB) then
 			-- set flags on execution
-			temp3 <= aluC ;
-			if(to_integer(unsigned(aluC)) = 0) then
-				zero <= '1' ;
-			else 
-				zero <= '0' ;
-			end if ;
-			if(aluCout = '1') then
-				carry <= '1' ;
-			else 
-				carry <= '0' ;
-			end if ;
+			if(opcode=OC_LM) then
+                temp9<=aluC;
+            else
+                temp3 <= aluC ;
+                if(to_integer(unsigned(aluC)) = 0) then
+                    zero <= '1' ;
+                else 
+                    zero <= '0' ;
+                end if ;
+                if(aluCout = '1') then
+                    carry <= '1' ;
+                else 
+                    carry <= '0' ;
+                end if ;
+            end if;
 		end if ;
 	end process;
-	process(temp3,temp4,temp5,temp6)
+
+	process(temp3,temp4,temp5,temp6,temp8)
 	begin
-		if(state=DM or state=ID) then
-			reg(7)<=temp3;
+		if(state=DMY or state=ID or state=DM) then
+            if(opcode=OC_LM) then
+                reg(multi_cycle_counter)<=Data_Out;
+            else
+                reg(7)<=temp3;
+            end if;
         elsif (State=EX) then
             reg(to_integer(unsigned(instr_reg(11 downto 9))))<=temp6;
         elsif (state=IR) then
@@ -288,10 +346,12 @@ begin
 			end if ;
 		end if;
 	end process;
+
 	process(state,reg,instr_reg)
 	begin
 		ostate<=std_logic_vector(to_unsigned(state, ostate'length));
 --		regs<=reg;
 		instrReg<=instr_reg;
 	end process;
+
 end arc;
