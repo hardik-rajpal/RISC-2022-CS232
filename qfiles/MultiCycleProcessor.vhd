@@ -73,20 +73,28 @@ begin
 					addr <= reg(7) ;
 					memWrite <= '0' ;
 					aluA <= reg(7) ;
-					aluB <= (0=>'1', others=>'0') ;
+					aluB <= (2=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
 					state <= ID;
 				elsif (state = ID) then 
 					if (instr_reg(15 downto 12) = "0001") then 
 						-- Addition
-							temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
-							if (instr_reg(1 downto 0) = "11") then 
-								temp2 <= std_logic_vector(shift_left(unsigned(reg(to_integer(unsigned(instr_reg(8 downto 6))))),1)) ;
-							else
-								temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
-							end if;
+						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+						if (instr_reg(1 downto 0) = "11") then 
+							temp2 <= std_logic_vector(shift_left(unsigned(reg(to_integer(unsigned(instr_reg(8 downto 6))))),1)) ;
+						else
+							temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
+						end if;
+						if(instr_reg(1 downto 0) = "00") then
 							state <=EX ;
-			
+						elsif (instr_reg(1 downto 0) = "10" and carry='1') then
+							state <=EX ;
+						elsif (instr_reg(1 downto 0) = "01" and zero='1') then
+							state <=EX ;
+						else
+							state<=IR ;
+						end if ;
+
 					elsif (instr_reg(15 downto 12) = "0000") then 
 						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
 						temp2(5 downto 0) <= instr_reg(5 downto 0);
@@ -105,7 +113,7 @@ begin
 						aluA <= temp1 ;
 						aluB <= temp2 ;
 						aluCtrl <= "000" ;
-						state<= WB ;
+						state <= WB ;
 					end if ;
 
 				elsif (state = WB) then
@@ -128,8 +136,8 @@ begin
 
 	process(aluC, aluCout)
 	begin
-		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
-		if (state = IR) then
+		report "aluC: "&integer'image(to_integer(unsigned(aluC)))&"aluA: "&integer'image(to_integer(unsigned(aluA)))&"aluB: "&integer'image(to_integer(unsigned(aluB)));
+		if (state = ID) then
 			temp3 <= aluC ;
 		elsif (state = WB) then
 			-- set flags on execution
@@ -153,14 +161,7 @@ begin
 			reg(7)<=temp3;
 		elsif(state=WB) then
 			if (instr_reg(15 downto 12) = "0001") then 
-				if(instr_reg(1 downto 0) = "00") then
-					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-				elsif (instr_reg(1 downto 0) = "10" and carry='1') then
-					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-				elsif (instr_reg(1 downto 0) = "01" and zero='1') then
-					reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-				
-				end if ;
+				reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
 			end if ;
 		end if;
 	end process;

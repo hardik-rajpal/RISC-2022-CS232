@@ -18,6 +18,7 @@ begin
         report "inputs: "&integer'image(to_integer(unsigned(a)))&", "&integer'image(to_integer(unsigned(b)));
         if rising_edge(clk) then
             if(ctrl="000") then
+                report "added: "&integer'image(to_integer(unsigned(a)))&", "&integer'image(to_integer(unsigned(b)));
                 c<= a+b;
 --                report "output:"&integer'image(to_integer(unsigned(c)));
             end if;
