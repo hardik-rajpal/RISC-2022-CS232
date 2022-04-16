@@ -3,18 +3,17 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all ;
 use std.textio.all;
-entity MultiCycleProcessor is
+entity MultiCycleProcessorTest is
 	port ( clk, rst : in std_logic;
 --			regs:out array(0 to 7) of std_logic_vector(15 downto 0);
 			instrReg:out std_logic_vector(15 downto 0);
 			ostate:out std_logic_vector(31 downto 0));
 end entity;
 
-architecture arc of MultiCycleProcessor is
+architecture arc of MultiCycleProcessorTest is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
 	signal reg: registers:=(0=>"0000000000000011",1=>"0000000000000011",others=>(others=>'0')) ;
-	signal tempreg: registers ;
 
 	-- signal updatedPC:std_logic_vector(15 downto 0);
 	signal instr_reg: std_logic_vector(15 downto 0) ;
@@ -48,9 +47,10 @@ architecture arc of MultiCycleProcessor is
 	signal aluCout: std_logic ; 
 
 	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
-	signal temp4:std_logic_vector(15 downto 0);
+	signal temp4, temp5,temp6,temp7:std_logic_vector(15 downto 0);
 	signal state: integer:=0 ;
 	--state variable functions as the control signal to registers, memory, alus etc.
+--	variable multi_cycle_counter : integer := 0;
 
 	component Memory is
 		port (Address: in std_logic_vector(15 downto 0) ;
@@ -132,27 +132,27 @@ begin
 					elsif (opcode = OC_BEQ) then 
 						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
 						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
-						aluA <= reg(7)
+						aluA <= reg(7);
 						aluB(5 downto 0) <= instr_reg(5 downto 0) ;
-						aluB(15 downto 6) <= others('0') ;
+						aluB(15 downto 6) <= (others=>'0') ;
 						state <= EX ;
 
 					elsif (opcode = OC_JAL) then 
-						reg(to_integer(unsigned(instr_reg(11 downto 9)))) <= reg(7) ;
+						temp6 <= reg(7) ;
 						aluA <= reg(7) ;
 						aluB(8 downto 0) <= instr_reg(8 downto 0) ;
-						aluB(15 downto 9) <= others('0') ;
+						aluB(15 downto 9) <= (others=>'0');
 						state <= EX ;
 
 					elsif (opcode = OC_JLR) then 
-						reg(to_integer(unsigned(instr_reg(11 downto 9)))) <= reg(7) ;
-						reg(7) <= reg(to_integer(unsigned(instr_reg(8 downto 6))))
+						temp5<=reg(7);
+						temp4<=reg(to_integer(unsigned(instr_reg(8 downto 6))));
 						state <= IR ;
 
 					elsif (opcode = OC_JRI) then 
 						aluA <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
 						aluB(8 downto 0) <= instr_reg(8 downto 0) ;
-						aluB(15 downto 9) <= others('0') ;
+						aluB(15 downto 9) <= (others=>'0') ;
 						state <= EX ;
 					
 					elsif (opcode = OC_LW) then
@@ -167,10 +167,8 @@ begin
 					elsif (opcode = OC_SM) then
 						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9))));  -- stores the reg having the memory address				
 					end if ;
-
-					
 				elsif (state = EX) then 
-					if (opcode = OC_ADDR or opcode = OC_ADDI or opcode = LHI) then 
+					if (opcode = OC_ADDR or opcode = OC_ADDI or opcode = OC_LHI) then 
 						aluA <= temp1 ;
 						aluB <= temp2 ;
 						aluCtrl <= "000" ;
@@ -182,30 +180,37 @@ begin
 						state <= WB;
 					elsif (opcode = OC_BEQ) then
 						if(temp1 = temp2) then
-							reg(7) <= temp3 ;
-						endif ;
+                            report "temp3 "&integer'image(to_integer(unsigned(temp3)));
+							temp4 <= temp3 ;
+                        end if ;
 						state <= IR ;
 					elsif (opcode = OC_JAL) then
-						reg(7) <= temp3 ;
+						temp4 <= temp3 ;
 						state <= IR ;
 					elsif (opcode = OC_JRI) then
-						reg(7) <= temp3 ;
+						temp4 <= temp3 ;
 						state <= IR ;
+						
 					elsif (opcode = OC_LW) then
 						aluA <= temp1;
-						aluB <= "0000000000" & instr_reg()
+						aluB <= "0000000000" & instr_reg(5 downto 0);
 						aluCtrl <= "000";
+						state <= DM ;
+
 					elsif (opcode = OC_SW) then
+						aluA <= temp1;
+						aluB <= "0000000000" & instr_reg(5 downto 0);
+						aluCtrl <= "000";
+						state <= WB;
 
 					elsif (opcode = OC_LM) then
+						state <= DM;
 
 					elsif (opcode = OC_SM) then
-						
+						state <= WB;
+
 					end if ;
 
-				elsif (state = WB) then
-					--shifted to last process(temp3)
-					state<=IR;
 				end if ;
 				
 			end if ;
@@ -235,6 +240,8 @@ begin
 		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
 		if (state = ID or state= DM) then
 			temp3 <= aluC ;
+        elsif(state=EX) then
+            temp3 <= aluC;
 		elsif (state = WB) then
 			-- set flags on execution
 			temp3 <= aluC ;
@@ -250,10 +257,21 @@ begin
 			end if ;
 		end if ;
 	end process;
-	process(temp3)
+	process(temp3,temp4,temp5,temp6)
 	begin
 		if(state=DM or state=ID) then
 			reg(7)<=temp3;
+        elsif (State=EX) then
+            reg(to_integer(unsigned(instr_reg(11 downto 9))))<=temp6;
+        elsif (state=IR) then
+            report "Ir branch";
+            if (opcode=OC_JLR) then
+                reg(to_integer(unsigned(instr_reg(11 downto 9))))<=temp5;
+                reg(7)<=temp4;
+            elsif(opcode = OC_BEQ  or opcode=OC_JAL or opcode=OC_JRI) then
+                report "opcode=beq";
+                reg(7)<=temp4;
+            end if;
 		elsif(state=WB) then
 			if (opcode = OC_ADDR or opcode=OC_ADDI) then 
 				reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;				

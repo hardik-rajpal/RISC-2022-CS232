@@ -3,14 +3,14 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all ;
 use std.textio.all;
-entity MultiCycleProcessor is
+entity MultiCycleProcessorTest is
 	port ( clk, rst : in std_logic;
 --			regs:out array(0 to 7) of std_logic_vector(15 downto 0);
 			instrReg:out std_logic_vector(15 downto 0);
 			ostate:out std_logic_vector(31 downto 0));
 end entity;
 
-architecture arc of MultiCycleProcessor is
+architecture arc of MultiCycleProcessorTest is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
 	signal reg: registers:=(0=>"0000000000000011",1=>"0000000000000011",others=>(others=>'0')) ;
@@ -51,6 +51,7 @@ architecture arc of MultiCycleProcessor is
 	signal temp4:std_logic_vector(15 downto 0);
 	signal state: integer:=0 ;
 	--state variable functions as the control signal to registers, memory, alus etc.
+	variable multi_cycle_counter : integer := 0;
 
 	component Memory is
 		port (Address: in std_logic_vector(15 downto 0) ;
@@ -191,20 +192,43 @@ begin
 					elsif (opcode = OC_JRI) then
 						reg(7) <= temp3 ;
 						state <= IR ;
+						
 					elsif (opcode = OC_LW) then
 						aluA <= temp1;
-						aluB <= "0000000000" & instr_reg()
+						aluB <= "0000000000" & instr_reg(5 downto 0);
 						aluCtrl <= "000";
+						state <= DM ;
+
 					elsif (opcode = OC_SW) then
+						aluA <= temp1;
+						aluB <= "0000000000" & instr_reg(5 downto 0);
+						aluCtrl <= "000";
+						state <= WB;
 
 					elsif (opcode = OC_LM) then
+						state <= DM;
 
 					elsif (opcode = OC_SM) then
-						
+						state <= WB;
+
 					end if ;
 
 				elsif (state = WB) then
 					--shifted to last process(temp3)
+					if multi_cycle_counter = 8 then
+						multi_cycle_counter := 0;
+						state <= IR;
+					end if;
+					multi_cycle_counter := multi_cycle_counter + 1;
+					state<=IR;
+				
+				elsif (state = ) then
+					--shifted to last process(temp3)
+					if multi_cycle_counter = 8 then
+						multi_cycle_counter := 0;
+						state <= IR;
+					end if;
+					multi_cycle_counter := multi_cycle_counter + 1;
 					state<=IR;
 				end if ;
 				

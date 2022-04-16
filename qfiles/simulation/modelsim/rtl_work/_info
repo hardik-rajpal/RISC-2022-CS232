@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim
 Ealu
-Z1 w1650114463
+Z1 w1650115490
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -26,9 +26,9 @@ VhT1?zIBeA9JT]6nXTMn>W3
 !s100 aamPLSSVjQl;B>XVe^TUW0
 Z9 OV;C;2020.1;71
 31
-Z10 !s110 1650114590
+Z10 !s110 1650119981
 !i10b 1
-Z11 !s108 1650114589.000000
+Z11 !s108 1650119980.000000
 Z12 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
 Z13 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
 !i113 1
@@ -43,9 +43,9 @@ R6
 DEx4 work 3 alu 0 22 hT1?zIBeA9JT]6nXTMn>W3
 !i122 0
 l14
-L12 12
-VefMcECPe`WJXDajNCQ8=h2
-!s100 ^=JGm25oL_=Zl0jLM7;4H0
+L12 14
+VbN?zoznd5>h@z95aORbAz3
+!s100 RGfIbeiCZTAVNb]`2jm_J0
 R9
 31
 R10
@@ -57,7 +57,7 @@ R13
 R14
 R15
 Ememory
-Z16 w1650114450
+Z16 w1650117935
 R2
 R3
 R6
@@ -73,11 +73,11 @@ V>A4flg9Vk[<cOG0nVN?^41
 !s100 T3mR^Cn]04X2X1F53fE8>1
 R9
 31
-R10
+Z19 !s110 1650119982
 !i10b 1
-Z19 !s108 1650114590.000000
-Z20 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
-Z21 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
+Z20 !s108 1650119981.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
+Z22 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
 !i113 1
 R14
 R15
@@ -89,22 +89,22 @@ R4
 R5
 DEx4 work 6 memory 0 22 >A4flg9Vk[<cOG0nVN?^41
 !i122 1
-l16
-L13 15
-Vj_AQ`ImAU7lWa:[XW5adZ2
-!s100 [bd[Acb8UC:7jWQh4Yg3[1
+l21
+L13 20
+VT70b;mI><6zCK@zb=URV[2
+!s100 07I9O69Q>gHe4Yz4QJMoF1
 R9
 31
-R10
-!i10b 1
 R19
+!i10b 1
 R20
 R21
+R22
 !i113 1
 R14
 R15
-Emulticycleprocessor
-Z22 w1650114576
+Emulticycleprocessortest
+Z23 w1650119871
 R2
 R3
 R6
@@ -112,19 +112,19 @@ R4
 R5
 !i122 2
 R0
-Z23 8C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd
-Z24 FC:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd
+Z24 8C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessorTest.vhd
+Z25 FC:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessorTest.vhd
 l0
 L6 1
-V?^eMN4cei4Hh<]g^^nfPh2
-!s100 biT[7>6TK7B2hVlE]6XmQ2
+VN0Lo8lYET53a8ejD5Ecz61
+!s100 EoC8@R4hX`R7G3IOF5H1d2
 R9
 31
-Z25 !s110 1650114591
+R19
 !i10b 1
-Z26 !s108 1650114591.000000
-Z27 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
-Z28 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+Z26 !s108 1650119982.000000
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessorTest.vhd|
+Z28 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessorTest.vhd|
 !i113 1
 R14
 R15
@@ -134,15 +134,15 @@ R3
 R6
 R4
 R5
-DEx4 work 19 multicycleprocessor 0 22 ?^eMN4cei4Hh<]g^^nfPh2
+DEx4 work 23 multicycleprocessortest 0 22 N0Lo8lYET53a8ejD5Ecz61
 !i122 2
-l57
-L13 179
-VAK1E^`3CXW5N:^4iL3;KH1
-!s100 oGB:@1?CafZYNA4YGf6JT3
+l69
+L13 279
+VML71XMLG6i3YVFXF]GS:>2
+!s100 KK_Scf:f8ZOPLG<Ud@3EN0
 R9
 31
-R25
+R19
 !i10b 1
 R26
 R27
@@ -150,8 +150,8 @@ R28
 !i113 1
 R14
 R15
-Emulticycleprocessor_vhd_vec_tst
-Z29 w1650103246
+Emulticycleprocessortest_vhd_vec_tst
+Z29 w1650119208
 R4
 R5
 !i122 3
@@ -160,11 +160,11 @@ Z30 8C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.v
 Z31 FC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
 l0
 L32 1
-VJ1kH[P7N1`2@<jzn>UPnO3
-!s100 ^_dGP5]1LWNG1Un>`omd43
+VJAZHJaYg7^6SJ3`ojHQ<11
+!s100 >DKUXNaDY8WI>b8MQQ7I@0
 R9
 31
-R25
+R19
 !i10b 1
 R26
 Z32 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
@@ -172,18 +172,18 @@ Z32 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfil
 !i113 1
 R14
 R15
-Amulticycleprocessor_arch
+Amulticycleprocessortest_arch
 R4
 R5
-DEx4 work 31 multicycleprocessor_vhd_vec_tst 0 22 J1kH[P7N1`2@<jzn>UPnO3
+DEx4 work 35 multicycleprocessortest_vhd_vec_tst 0 22 JAZHJaYg7^6SJ3`ojHQ<11
 !i122 3
 l49
 L34 46
-VK6PdMMM;7]nGEI61jbYfi2
-!s100 56R38O7[?X5Ci;J<g<47Q2
+V:J;VZYHLzG;c6Djz93@<g3
+!s100 L[m3D5<^H?3XC=SS3bKTW0
 R9
 31
-R25
+R19
 !i10b 1
 R26
 R32

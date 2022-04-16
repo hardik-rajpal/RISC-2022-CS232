@@ -21,7 +21,7 @@
 -- *****************************************************************************
 -- Generated on "04/16/2022 14:30:23"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          MultiCycleProcessor
+-- Vhdl Test Bench(with test vectors) for design  :          MultiCycleProcessorTest
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -29,16 +29,16 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY MultiCycleProcessor_vhd_vec_tst IS
-END MultiCycleProcessor_vhd_vec_tst;
-ARCHITECTURE MultiCycleProcessor_arch OF MultiCycleProcessor_vhd_vec_tst IS
+ENTITY MultiCycleProcessorTest_vhd_vec_tst IS
+END MultiCycleProcessorTest_vhd_vec_tst;
+ARCHITECTURE MultiCycleProcessorTest_arch OF MultiCycleProcessorTest_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
 SIGNAL instrReg : STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL ostate : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL rst : STD_LOGIC;
-COMPONENT MultiCycleProcessor
+COMPONENT MultiCycleProcessorTest
 	PORT (
 	clk : IN STD_LOGIC;
 	instrReg : BUFFER STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -47,7 +47,7 @@ COMPONENT MultiCycleProcessor
 	);
 END COMPONENT;
 BEGIN
-	i1 : MultiCycleProcessor
+	i1 : MultiCycleProcessorTest
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
@@ -76,4 +76,4 @@ BEGIN
 	rst <= '0';
 WAIT;
 END PROCESS t_prcs_rst;
-END MultiCycleProcessor_arch;
+END MultiCycleProcessorTest_arch;

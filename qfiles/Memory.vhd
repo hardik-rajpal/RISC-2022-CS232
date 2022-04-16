@@ -12,7 +12,12 @@ end Memory;
 
 architecture Behavioral of Memory is
 type RAM is array (0 to 65535) of std_logic_vector(15 downto 0) ;
-signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
+-- signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
+-- signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
+-- signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
+-- signal DataMEM: RAM:=(0=>"0001000001010000",others=>(others=>'0'));
+signal DataMEM: RAM:=(0=>"1000000001000011",others=>(others=>'0'));
+
 begin
 	process(Address)
 	begin
