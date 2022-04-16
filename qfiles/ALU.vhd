@@ -10,6 +10,7 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
+begin
     if(ctrl="000") then
         c<= a+b;
 --                report "output:"&integer'image(to_integer(unsigned(c)));
