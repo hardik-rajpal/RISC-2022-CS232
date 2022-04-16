@@ -14,16 +14,18 @@ architecture arc of MultiCycleProcessor is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
 	signal reg: registers:=(0=>"0000000000000011",1=>"0000000000000011",others=>(others=>'0')) ;
+	signal tempreg: registers ;
 
 	-- signal updatedPC:std_logic_vector(15 downto 0);
 	signal instr_reg: std_logic_vector(15 downto 0) ;
-	signal carry: std_logic:='0' ;
-	signal zero: std_logic:='1' ;
-	signal opcode:std_logic_vector(3 downto 0);
+	signal carry: std_logic ;
+	signal zero: std_logic ; 
+
 	signal addr: std_logic_vector(15 downto 0) ;
 	signal memWrite: std_logic ;
 	signal Data_In: std_logic_vector(15 downto 0) ;
 	signal Data_Out: std_logic_vector(15 downto 0) ;
+	signal opcode:std_logic_vector(3 downto 0);
 	constant OC_ADDR:std_logic_vector(3 downto 0):="0001";
 	constant OC_ADDI:std_logic_vector(3 downto 0):="0000";
 	constant OC_NND:std_logic_vector(3 downto 0):="0010";
@@ -36,7 +38,6 @@ architecture arc of MultiCycleProcessor is
 	constant OC_JAL:std_logic_vector(3 downto 0):="1001";
 	constant OC_JLR:std_logic_vector(3 downto 0):="1010";
 	constant OC_JRI:std_logic_vector(3 downto 0):="1011";
-	
 	constant IR:integer:=0;
 	constant ID:integer:=1;
 	constant EX:integer:=2;
@@ -46,7 +47,7 @@ architecture arc of MultiCycleProcessor is
 	signal aluCtrl: std_logic_vector(2 downto 0) ;
 	signal aluCout: std_logic ; 
 
-	signal temp1, temp2, temp3,temp4: std_logic_vector(15 downto 0) ;
+	signal temp1, temp2, temp3: std_logic_vector(15 downto 0) ;
 
 	signal state: integer:=0 ;
 	--state variable functions as the control signal to registers, memory, alus etc.
@@ -82,18 +83,9 @@ begin
 				if(state = IR) then
 					addr <= reg(7) ;
 					memWrite <= '0' ;
-					-- temp6 <= reg(7) + '1';
 					aluA <= reg(7) ;
-					aluB <= (2=>'1', others=>'0') ;
+					aluB <= (0=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
-					-- if(aluCout = '1') then
-					--  report "alucout: 1";
-					--  elsif(alucout='0') then
-					--  report "alucout: 0";
-					--  else
-					--  report "alucout:X?";
-					--  end if;
-					-- report "aluC: "&integer'image(to_integer(unsigned(aluC)));
 					state <= DM;
 				elsif(state=DM) then
 					state<=ID;
@@ -107,58 +99,77 @@ begin
 							temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
 						end if;
 						if(instr_reg(1 downto 0) = "00") then
-							state <=EX ;
+							state<=EX ;
 						elsif (instr_reg(1 downto 0) = "10" and carry='1') then
-							state <=EX ;
+							state<=EX ;
 						elsif (instr_reg(1 downto 0) = "01" and zero='1') then
-							state <=EX ;
+							state<=EX ;
 						else
-							state<=IR ;
-						end if ;
+							state<=IR;
+						end if ;			
 					elsif (opcode = OC_ADDI) then 
-						--Addition Immediate
 						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
 						temp2(5 downto 0) <= instr_reg(5 downto 0);
 						temp2 (15 downto 6) <= (others=>'0');
 						state <= EX ;
 					elsif (opcode = OC_NND) then 
-						--NAND U,C,Z
 						temp1<= reg(to_integer(unsigned(instr_reg(11 downto 9))));
 						temp2<= reg(to_integer(unsigned(instr_reg(8 downto 6))));
-						aluCtrl<="001";
 						if(instr_reg(1 downto 0) = "00") then
-							state <=EX ;
+							state<=EX ;
 						elsif (instr_reg(1 downto 0) = "10" and carry='1') then
-							state <=EX ;
+							state<=EX ;
 						elsif (instr_reg(1 downto 0) = "01" and zero='1') then
-							state <=EX ;
+							state<=EX ;
 						else
-							state<=IR ;
+							state<=IR;
 						end if ;
 					elsif (opcode = OC_LHI) then 
-						--LHI
-						temp1(15 downto 7)<=instr_reg(8 downto 0);
-						temp1(6 downto 0)<=(others=>'0');
-						temp2 <= (others=>'0');
-						state<=EX;
+
+					elsif (opcode = OC_BEQ) then 
+						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
+						aluA <= reg(7)
+						aluB(5 downto 0) <= instr_reg(5 downto 0) ;
+						aluB(15 downto 6) <= others('0') ;
+						state <= EX ;
+
+					elsif (opcode = OC_JAL) then 
+						reg(to_integer(unsigned(instr_reg(11 downto 9)))) <= reg(7) ;
+						aluA <= reg(7) ;
+						aluB(8 downto 0) <= instr_reg(8 downto 0) ;
+						aluB(15 downto 9) <= others('0') ;
+						state <= EX ;
+					
 					elsif (opcode = OC_LW) then
-						temp1<= reg(to_integer(unsigned(instr_reg(8 downto 6))));
-						temp2(5 downto 0)<=instr_reg(5 downto 0);
-						temp2(15 downto 6)<=(others=>'0');
-						state<=EX;
+						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6))));
+					
+					elsif (opcode = OC_SW) then
+						temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6))));
+					
 					end if ;
+
+					
 				elsif (state = EX) then 
-					if (opcode = OC_ADDR) then 
+					if (opcode = OC_ADDR or opcode = OC_ADDI) then 
 						aluA <= temp1 ;
 						aluB <= temp2 ;
 						aluCtrl <= "000" ;
-						state <= WB ;
+						state<= WB ;
+					elsif (opcode=OC_NND) then
+						aluA <= temp1;
+						aluA <= temp2;
+						aluCtrl <= "001";
+						state <= WB;
+					elsif (opcode = OC_BEQ) then
+						if(temp1 = temp2) then
+							reg(7) <= temp3 ;
+						endif ;
+						state <= IR ;
+						
 					end if ;
 
 				elsif (state = WB) then
-					if(opcode = OC_LW) then
-						addr<=temp3;
-					end if;
 					--shifted to last process(temp3)
 					state<=IR;
 				end if ;
@@ -171,11 +182,9 @@ begin
 	begin
 		if (state = IR) then
 			instr_reg <= Data_Out ;
-
+			opcode <= Data_out(15 downto 12);
+			-- state <= ID ;
 			report "read instruction"&(integer'image(to_integer(unsigned(Data_out))));
-		elsif (state=WB and opcode=OC_LW) then
-			temp4 <= Data_out;
-
 		end if ;
 	end process ;
 
@@ -200,7 +209,6 @@ begin
 			else 
 				zero <= '0' ;
 			end if ;
-
 			if(aluCout = '1') then
 				carry <= '1' ;
 			else 
@@ -208,19 +216,17 @@ begin
 			end if ;
 		end if ;
 	end process;
-	process(temp3,temp4)
+	process(temp3)
 	begin
 		if(state=DM or state=ID) then
 			reg(7)<=temp3;
 		elsif(state=WB) then
-			if (opcode = OC_ADDI or opcode=OC_ADDR) then 
-				reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;
-			elsif (opcode=OC_LHI) then
-				reg(to_integer(unsigned(instr_reg(11 downto 9)))) <= temp3;
-			elsif (opcode=OC_LW) then
-				reg(to_integer(unsigned(instr_reg(11 downto 9)))) <= temp4;
+			if (opcode = OC_ADDR or opcode=OC_ADDI) then 
+				reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3 ;				
+			elsif (opcode = OC_NND) then
+				reg(to_integer(unsigned(instr_reg(5 downto 3)))) <= temp3;
 			end if ;
-		end if;	
+		end if;
 	end process;
 	process(state,reg,instr_reg)
 	begin

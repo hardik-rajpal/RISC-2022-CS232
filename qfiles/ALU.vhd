@@ -16,8 +16,10 @@ begin
 	begin
 		if (ctrl = "000") then
 			c<= a+b;
-			temp <=a+b ;
-         report "output:"&integer'image(to_integer(unsigned(temp)));
+			-- temp <=a+b ;
+		elsif (ctrl="001") then
+			c<= a nand b;
+        --  report "output:"&integer'image(to_integer(unsigned(temp)));
 		end if;
 	end process;
 end Behavioral;
