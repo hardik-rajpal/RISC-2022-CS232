@@ -1,0 +1,193 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim
+Ealu
+Z1 w1650092642
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z6 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+!i122 0
+R0
+Z7 8C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd
+Z8 FC:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd
+l0
+L5 1
+Vnh@kNA7G6@ZM]@BQk4lZM3
+!s100 SGDoH]V]AX4m69oL63]l23
+Z9 OV;C;2020.1;71
+31
+Z10 !s110 1650092731
+!i10b 1
+Z11 !s108 1650092731.000000
+Z12 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
+Z13 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/ALU.vhd|
+!i113 1
+Z14 o-93 -work work
+Z15 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 3 alu 0 22 nh@kNA7G6@ZM]@BQk4lZM3
+!i122 0
+l15
+L13 14
+VhA4RG``Rnfi05]izh<eK^2
+!s100 4FznaCES25TfWT5O]1UGR0
+R9
+31
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Ememory
+Z16 w1650091734
+R2
+R3
+R6
+R4
+R5
+!i122 1
+R0
+Z17 8C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd
+Z18 FC:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd
+l0
+L6 1
+VVf@LlP?@MhJiA>=8D>mbO0
+!s100 cOo<fz492O^1e_iM23Djk2
+R9
+31
+Z19 !s110 1650092733
+!i10b 1
+Z20 !s108 1650092733.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
+Z22 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/Memory.vhd|
+!i113 1
+R14
+R15
+Abehavioral
+R2
+R3
+R6
+R4
+R5
+DEx4 work 6 memory 0 22 Vf@LlP?@MhJiA>=8D>mbO0
+!i122 1
+l16
+L13 17
+V4ibLWn=ZP4ZZVT<AP9<<72
+!s100 Z:jKUbK<m6PkHYj@KbAj]2
+R9
+31
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R14
+R15
+Emulticycleprocessor
+Z23 w1650092678
+R2
+R3
+R6
+R4
+R5
+!i122 2
+R0
+Z24 8C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd
+Z25 FC:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd
+l0
+L6 1
+Vj2T_`N[KOSU@WFZ8D;B2:1
+!s100 J0[1C^nEaC9GHYCiGYJOH2
+R9
+31
+Z26 !s110 1650092734
+!i10b 1
+R20
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+Z28 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/MultiCycleProcessor.vhd|
+!i113 1
+R14
+R15
+Aarc
+R2
+R3
+R6
+R4
+R5
+DEx4 work 19 multicycleprocessor 0 22 j2T_`N[KOSU@WFZ8D;B2:1
+!i122 2
+l58
+L13 158
+V[e=7SXM>OQ`d7m5RETeS]2
+!s100 JLbdJn;Fi64VJUhCa=Q_g0
+R9
+31
+R26
+!i10b 1
+R20
+R27
+R28
+!i113 1
+R14
+R15
+Emulticycleprocessor_vhd_vec_tst
+Z29 w1650089832
+R4
+R5
+!i122 3
+R0
+Z30 8C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
+Z31 FC:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht
+l0
+L32 1
+VJ1kH[P7N1`2@<jzn>UPnO3
+!s100 ^_dGP5]1LWNG1Un>`omd43
+R9
+31
+R26
+!i10b 1
+Z32 !s108 1650092734.000000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+!s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+!i113 1
+R14
+R15
+Amulticycleprocessor_arch
+R4
+R5
+DEx4 work 31 multicycleprocessor_vhd_vec_tst 0 22 J1kH[P7N1`2@<jzn>UPnO3
+!i122 3
+l45
+L34 40
+VY:gLL<mPcocihB07K@Aa42
+!s100 e@<dIeK@RHV2:YD7EJ7641
+R9
+31
+R26
+!i10b 1
+R32
+R33
+Z34 !s107 C:/CODE/outcode/RISC-2022-CS232/qfiles/simulation/modelsim/TesterWave.vwf.vht|
+!i113 1
+R14
+R15

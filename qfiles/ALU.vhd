@@ -1,4 +1,5 @@
 library IEEE;
+use IEEE.std_logic_unsigned.all;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 entity ALU is
@@ -14,8 +15,12 @@ architecture Behavioral of ALU is
 begin
     process (clk)
     begin
+        report "inputs: "&integer'image(to_integer(unsigned(a)))&", "&integer'image(to_integer(unsigned(b)));
         if rising_edge(clk) then
-            
+            if(ctrl="000") then
+                c<= a+b;
+--                report "output:"&integer'image(to_integer(unsigned(c)));
+            end if;
         end if;
     end process;
 end Behavioral;

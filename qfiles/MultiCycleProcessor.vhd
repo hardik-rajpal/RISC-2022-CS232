@@ -2,15 +2,18 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all ;
-
+use std.textio.all;
 entity MultiCycleProcessor is
-	port ( clk, rst : in std_logic);
+	port ( clk, rst : in std_logic;
+--			regs:out array(0 to 7) of std_logic_vector(15 downto 0);
+			instrReg:out std_logic_vector(15 downto 0);
+			ostate:out integer);
 end entity;
 
 architecture arc of MultiCycleProcessor is
 	-- Register 7 stores the Program Counter
 	type registers is array (0 to 7) of std_logic_vector(15 downto 0); 
-	signal reg: registers ;
+	signal reg: registers:=(0=>"0000000000000011",1=>"0000000000000011",others=>(others=>'0')) ;
 	signal tempreg: registers ;
 
 	-- signal updatedPC:std_logic_vector(15 downto 0);
@@ -60,6 +63,9 @@ begin
 	process(clk)
 	begin		
 		if rising_edge(clk) then
+			for x in 0 to 7 loop
+				report "reg"&integer'image(x)&" = "&integer'image(to_integer(unsigned(reg(x))));
+			end loop;
 			if rst = '1' then
 				state <= IR;
 			else
@@ -67,9 +73,31 @@ begin
 					addr <= reg(7) ;
 					memWrite <= '0' ;
 					aluA <= reg(7) ;
-					aluB <= (0=>'1', others=>'0') ;
+					aluB <= (2=>'1', others=>'0') ;
 					aluCtrl <= "000" ;
 					state <= ID;
+				elsif (state = ID) then 
+					if (instr_reg(15 downto 12) = "0001") then 
+						-- Addition
+							temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+							if (instr_reg(1 downto 0) = "11") then 
+								temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
+							end if;
+							state <= EX ;
+			
+					elsif (instr_reg(15 downto 12) = "0000") then 
+						temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
+						temp2(5 downto 0) <= instr_reg(5 downto 0);
+						temp2 (15 downto 6) <= (others=>'0');
+						state <= EX ;
+			
+					elsif (instr_reg(15 downto 12) = "0010") then 
+						temp1<= reg(to_integer(unsigned(instr_reg(11 downto 9))));
+						temp2<= reg(to_integer(unsigned(instr_reg(8 downto 6))));
+			
+					elsif (instr_reg(15 downto 12) = "0011") then 
+			
+					end if ;
 				elsif (state = EX) then 
 					if (instr_reg(15 downto 12) = "0001") then 
 						aluA <= temp1 ;
@@ -91,33 +119,13 @@ begin
 		if (state = IR) then
 			instr_reg <= Data_Out ;
 			-- state <= ID ;
+			report "read instruction"&(integer'image(to_integer(unsigned(Data_out))));
 		end if ;
 	end process ;
-	process(instr_reg)
-	begin
-		if (instr_reg(15 downto 12) = "0001") then 
-			-- Addition
-				temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
-				if (instr_reg(1 downto 0) = "11") then 
-					temp2 <= reg(to_integer(unsigned(instr_reg(8 downto 6)))) ;
-				end if;
-				state <= EX ;
 
-		elsif (instr_reg(15 downto 12) = "0000") then 
-			temp1 <= reg(to_integer(unsigned(instr_reg(11 downto 9)))) ;
-			temp2(5 downto 0) <= instr_reg(5 downto 0);
-			temp2 (15 downto 6) <= (others=>'0');
-			state <= EX ;
-
-		elsif (instr_reg(15 downto 12) = "0010") then 
-			temp1<= reg(to_integer())
-
-		elsif (instr_reg(15 downto 12) = "0011") then 
-
-		end if ;
-	end process;
 	process(aluC, aluCout)
 	begin
+		report "aluC: "&integer'image(to_integer(unsigned(aluC)));
 		if (state = IR) then
 			temp3 <= aluC ;
 		elsif (state = EX) then
@@ -152,5 +160,11 @@ begin
 				end if ;
 			end if ;
 		end if;
+	end process;
+	process(state,reg,instr_reg)
+	begin
+		ostate<=state;
+--		regs<=reg;
+		instrReg<=instr_reg;
 	end process;
 end arc;
